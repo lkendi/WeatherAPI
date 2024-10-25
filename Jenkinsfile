@@ -7,17 +7,26 @@ pipeline{
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/lkendi/WeatherApp-with-CI-CD.git']])
             }
         }
-        
+
         stage('.NET Build'){
             steps{
                 echo 'Building project...'
-                dir('src') { 
+                dir('src') {
                     sh 'dotnet restore'
                     sh 'dotnet build'
                 }
             }
         }
-        
+
+        stage('.NET Test'){
+            steps{
+                echo 'Testing project...'
+                dir('tests/WeatherApp.Tests') {
+                    sh 'dotnet test'
+                }
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 echo 'Building docker image...'
@@ -28,7 +37,7 @@ pipeline{
                 }
             }
         }
-        
+
         stage('Push Image to Docker Hub'){
             steps{
                 echo 'Pushing image to docker hub...'
