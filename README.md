@@ -40,7 +40,9 @@ The project is structured based on Clean Architecture principles:
 
 ### CI/CD Pipeline
 
-The Jenkins pipeline is defined in the `Jenkinsfile`. It automates the following steps:
+![alt text](image-1.png)
+
+The CI/CD pipeline is defined in the `Jenkinsfile`. It automates the following steps:
 
 1.  Pulls the latest code from GitHub.
 2.  Builds and tests the application.
