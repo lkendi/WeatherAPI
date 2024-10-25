@@ -4,7 +4,7 @@ pipeline{
         stage('Checkout'){
             steps{
                 echo 'Checking out the repository...'
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/lkendi/WeatherApp.git']])
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/lkendi/WeatherApp-with-CI-CD.git']])
             }
         }
         
